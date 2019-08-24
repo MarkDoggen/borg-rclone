@@ -8,6 +8,7 @@ This example uses all environment variables. See below which variables are optio
 ```
 docker run \
     -v /home:/data \
+    -v /backups:/backups \
     -e BACKUP_NAME="mybackup" \
     -e BACKUP_SCHEDULE="0 2 * * *" \
     -e BACKUP_ARGUMENTS="/data --exclude /data/.cache/" \
