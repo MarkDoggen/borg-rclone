@@ -13,8 +13,8 @@ RUN apk update \
     
 RUN apk update && apk add borgbackup=1.1.10-r0 curl postgresql-client
 
-WORKDIR /app
-ADD *.sh /app/
+WORKDIR /borg-rclone/
+ADD *.sh /borg-rclone/
 RUN chmod +x *.sh
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/borg-rclone/entrypoint.sh"]

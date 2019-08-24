@@ -48,7 +48,7 @@ else
 fi
 
 if [[ "${RCLONE_CONF}" ]]; then
-    echo -e $RCLONE_CONF > /app/rclone.conf
+    echo -e $RCLONE_CONF > /borg-rclone/rclone.conf
 fi
 
 if [[ -z "${RCLONE_DESTINATION}" ]]; then
@@ -57,7 +57,7 @@ else
     RCLONE_DESTINATION="${RCLONE_DESTINATION}"
 fi
 
-rclone --config=/app/rclone.conf sync --verbose $BORG_REPO $RCLONE_DESTINATION
+rclone --config=/borg-rclone/rclone.conf sync --verbose $BORG_REPO $RCLONE_DESTINATION
 rclone_exit=$?
 
 if [ ${backup_exit} -ne 0 ]; then

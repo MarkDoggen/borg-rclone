@@ -7,11 +7,11 @@ This example uses all environment variables. See below which variables are optio
 
 ```
 docker run \
-    -v /home:/data \
+    -v /home:/home \
     -v /backups:/backups \
     -e BACKUP_NAME="mybackup" \
     -e BACKUP_SCHEDULE="0 2 * * *" \
-    -e BACKUP_ARGUMENTS="/data --exclude /data/.cache/" \
+    -e BACKUP_ARGUMENTS="/home --exclude /home/.cache/" \
     -e BORG_PASSPHRASE="topsecret" \
     -e BEFORE_BACKUP="echo Running backup" \
     -e RCLONE_CONF="[drive]\ntype=drive\nscope=drive.file\ntoken={}" \
@@ -28,7 +28,7 @@ The following environment variables are mandatory:
 * ```BACKUP_NAME``` name of the backup.
 * ```BACKUP_ARGUMENTS``` arguments to be passed to the ```borg create``` command. See [https://borgbackup.readthedocs.io/en/stable/usage/create.html](https://borgbackup.readthedocs.io/en/stable/usage/create.html)
 * ```BORG_PASSPHRASE``` passphrase to be used for encryption of the backup.
-* ```RCLONE_CONF``` contents of ```rclone.conf```. If set, contents will be written to ```/app/rclone.conf``` and used as configuration file for Rclone.  (note: instead of passing ```RCLONE_CONF```, you can also mount your configuration file to ```/app/rclone.conf```). 
+* ```RCLONE_CONF``` contents of ```rclone.conf```. If set, contents will be written to ```/borg-rclone/rclone.conf``` and used as configuration file for Rclone.  (note: instead of passing ```RCLONE_CONF```, you can also mount your configuration file to ```/borg-rclone/rclone.conf```). 
 * ```RCLONE_DESTINATION``` destination path to sync the backup to. Defaults to ```drive:``` See [https://rclone.org/docs/](https://rclone.org/docs/)
 
 The following environment variables are optional:
