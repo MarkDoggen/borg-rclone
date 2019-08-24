@@ -37,11 +37,11 @@ if [[ "${BEFORE_BACKUP}" ]]; then
     /bin/sh -c "$BEFORE_BACKUP"
 fi
 
-borg create --verbose --filter AME --list --stats --show-rc --exclude-caches $BORG_REPO::'{now}' $BACKUP_ARGUMENTS --exclude /backups
+/bin/sh -c "borg create --verbose --filter AME --list --stats --show-rc --exclude-caches $BORG_REPO::'{now}' $BACKUP_ARGUMENTS --exclude /backups"
 backup_exit=$?
 
 if [[ "${PRUNE_ARGUMENTS}" ]]; then
-    borg prune --list --show-rc $PRUNE_ARGUMENTS
+    /bin/sh -c "borg prune --list --show-rc $PRUNE_ARGUMENTS"
     prune_exit=$?
 else
     prune_exit=0
