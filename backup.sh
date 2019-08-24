@@ -64,12 +64,12 @@ if [ ${backup_exit} -ne 0 ]; then
     log "Borg backup command failed"
     ping_failure
 elif [ ${prune_exit} -ne 0 ]; then
-	log "Borg prune command failed"
-	ping_failure
+    log "Borg prune command failed"
+    ping_failure
 elif [ ${rclone_exit} -ne 0 ]; then
-	log "Rclone command failed"
-	ping_failure
+    log "Rclone command failed"
+    ping_failure
 else
-	log "Backup ran successfully"
-	ping_success
+    log "Backup ran successfully"
+    ping_success
 fi

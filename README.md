@@ -34,6 +34,6 @@ The following environment variables are mandatory:
 The following environment variables are optional:
 * ```BACKUP_SCHEDULE``` cron schedule for the backup. Defaults to ```0 0 * * *``` (daily backups at midnight). 
 * ```BEFORE_BACKUP``` command(s) to be run before Borg runs ```backup create```.
-* ```PRUNE_ARGUMENTS``` arguments to be passed to the ```borg prune``` command. See [https://borgbackup.readthedocs.io/en/stable/usage/prune.html](https://borgbackup.readthedocs.io/en/stable/usage/prune.html). Backup pruning is enabled if this variable is omitted.
+* ```PRUNE_ARGUMENTS``` arguments to be passed to the ```borg prune``` command. See [https://borgbackup.readthedocs.io/en/stable/usage/prune.html](https://borgbackup.readthedocs.io/en/stable/usage/prune.html). Backup pruning is disabled if this variable is omitted.
 * ```PUSHOVER_APP_TOKEN``` and ```PUSHOVER_USER_KEY``` can be set to be notified of the backup result.
 * ```PING_SUCCESS``` webhook that will be invoked when the backup has successfully ran.
