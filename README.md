@@ -1,6 +1,6 @@
 # Borg + Rclone backup
 Docker image to backup to a local Borg repository and then sync the Borg repository to any destination supported by Rclone. Inspired by https://github.com/mannkind/borg-rclone-autobackup, with some added features:
-* Before backup hook, to run any command before the backup is created. Can be used in combination with the included pg_dump to backup a Postgres database that will be included in the backup.
+* Before backup hook, to run any command before the backup is created. Can be used in combination with the included ```pg_dump```. command to backup a Postgres database to be included in the backup.
 * Pushover notification on success / failure.
 ## How to use
 This example uses all environment variables. See below which variables are optional.
