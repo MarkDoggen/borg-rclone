@@ -40,14 +40,12 @@ fi
 borg create --verbose --filter AME --list --stats --show-rc --exclude-caches $BORG_REPO::'{now}' $BACKUP_ARGUMENTS --exclude /backups
 backup_exit=$?
 
-
 if [[ "${PRUNE_ARGUMENTS}" ]]; then
 	borg prune --list --show-rc $PRUNE_ARGUMENTS
 	prune_exit=$?
 else
 	prune_exit=0
 fi
-
 
 if [[ "${RCLONE_CONF}" ]]; then
 	echo -e $RCLONE_CONF > /app/rclone.conf
@@ -62,7 +60,6 @@ fi
 rclone --config=/app/rclone.conf sync --verbose $BORG_REPO $RCLONE_DESTINATION
 rclone_exit=$?
 
-
 if [ ${backup_exit} -ne 0 ]; then
     log "Borg backup command failed"
     ping_failure
@@ -76,4 +73,3 @@ else
 	log "Backup ran successfully"
 	ping_success
 fi
-

@@ -36,4 +36,3 @@ The following environment variables are optional:
 * ```PRUNE_ARGUMENTS``` arguments to be passed to the ```borg prune``` command. See [https://borgbackup.readthedocs.io/en/stable/usage/prune.html](https://borgbackup.readthedocs.io/en/stable/usage/prune.html). Backup pruning is enabled if this variable is omitted.
 * ```PUSHOVER_APP_TOKEN``` and ```PUSHOVER_USER_KEY``` can be set to be notified of the backup result.
 * ```PING_SUCCESS``` webhook that will be invoked when the backup has successfully ran.
-
