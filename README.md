@@ -17,7 +17,7 @@ docker run \
     -e BEFORE_BACKUP="echo Running backup" \
     -e RCLONE_CONF="[drive]\ntype=drive\nscope=drive.file\ntoken={}" \
     -e RCLONE_DESTINATION="drive:" \
-    -e PRUNE_ARGUMENTS="--keep-daily 7 --keep-weekly 4 --keep-monthly 6" \
+    -e PRUNE_ARGUMENTS="--keep-hourly 24 --keep-daily 7 --keep-weekly 4 --keep-monthly 12 --keep-yearly 3" \
     -e PUSHOVER_APP_TOKEN="12345" \
     -e PUSHOVER_USER_KEY="12345" \
     -e PING_SUCCESS="https://my.webhook" \
